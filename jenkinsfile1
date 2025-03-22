@@ -2,17 +2,17 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE = "justice/social-app"
+        DOCKER_IMAGE = "ashok/social-app"
         DOCKER_TAG = "latest"
         DOCKER_CREDENTIALS_ID = "docker"
-        GITHUB_CREDENTIALS_ID = "github-seccred"
-        KUBECONFIG = "/var/lib/jenkins/.kube/config"
+        GITHUB_CREDENTIALS_ID = "github_seccred"
+        KUBECONFIG = "/var/lib/ashok/.kube/config"
     }
 
     stages {
         stage('Checkout Code') {
             steps {
-                git credentialsId: GITHUB_CREDENTIALS_ID, url: 'https://github.com/justicesecops-10/spring-boot-app', branch: 'main'
+                git credentialsId: GITHUB_CREDENTIALS_ID, url: 'https://github.com/ashoknirmal/spring-boot', branch: 'main'
             }
         }
 
